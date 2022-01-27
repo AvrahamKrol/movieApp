@@ -20,7 +20,7 @@ export const App: FC = observer(() => {
             <Routes>
                 <Route path = '/' element = { <Outlet /> }>
                     <Route path = '/' element = { <Greeting /> } />
-                    <Route path = 'movie-details/:id' element = { <FilmDetails /> } />
+                    <Route path = 'films/:id' element = { <FilmDetails /> } />
                 </Route>
 
                 <Route path = '*' element = { <Navigate to = '/' /> } />
