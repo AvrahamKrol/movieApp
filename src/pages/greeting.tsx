@@ -1,12 +1,18 @@
 // Core
-import { Typography } from 'antd';
+import { FC } from 'react';
+import { Layout } from 'antd';
 
-const { Title } = Typography;
 
-export const Greeting = () => {
+import { FilmDetails } from '.';
+
+const { Content } = Layout;
+
+export const Greeting: FC = () => {
     return (
-        <>
-            <Title>Групповой проект</Title>
-        </>
+        <Layout>
+            <Content>
+                <FilmDetails />
+            </Content>
+        </Layout>
     );
 };

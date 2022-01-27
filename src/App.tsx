@@ -8,40 +8,19 @@ import { observer } from 'mobx-react-lite';
 
 // Components
 import {
-    Greeting,
+    Greeting, FilmDetails,
 } from './pages';
 
 /* Other */
 import { useStore } from './hooks';
 
 export const App: FC = observer(() => {
-    const { uiStore } = useStore();
-    const { errorMessage, resetError } = uiStore;
-
-    useEffect(() => {
-        if (errorMessage) {
-            const notify = () => toast.error(errorMessage, {
-                position:        'top-right',
-                autoClose:       7000,
-                hideProgressBar: false,
-                closeOnClick:    true,
-                pauseOnHover:    true,
-                draggable:       true,
-                progress:        undefined,
-            });
-            notify();
-
-            resetError();
-        }
-    }, [errorMessage]);
-
     return (
         <>
-            <ToastContainer newestOnTop transition = { Slide } />
-
             <Routes>
                 <Route path = '/' element = { <Outlet /> }>
                     <Route path = '/' element = { <Greeting /> } />
+                    <Route path = 'movie-details/:id' element = { <FilmDetails /> } />
                 </Route>
 
                 <Route path = '*' element = { <Navigate to = '/' /> } />

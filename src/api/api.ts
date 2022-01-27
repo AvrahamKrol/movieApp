@@ -5,8 +5,10 @@ import axios from 'axios';
 import { root } from './config';
 
 export const api = Object.freeze({
-    getMovie: (filmId: string) => {
-        return axios.get(`${root}/movie-details/${filmId}`);
+    getMovie: async (filmId: string | any) => {
+        const { data } = await axios.get(`${root}/movie-details/${filmId}`);
+
+        return data.data;
     },
     getSimilarMovies: (filmId: string) => {
         return axios.get(`${root}/${filmId}/similar`);
