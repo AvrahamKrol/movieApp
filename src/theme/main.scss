@@ -1,7 +1,9 @@
 /* Core */
+@import './reset.scss';
 @import 'sanitize.css';
 
 /* Instruments */
 @import './css-vars.scss';
 @import './sass-vars.scss';
-@import './reset.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');

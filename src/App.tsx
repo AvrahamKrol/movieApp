@@ -1,15 +1,17 @@
 // Core
 import { FC, useEffect } from 'react';
 import {
-    Routes, Route, Outlet, Navigate,
+    Routes, Route, Navigate,
 } from 'react-router-dom';
 import { ToastContainer, toast, Slide } from 'react-toastify';
 import { observer } from 'mobx-react-lite';
 
 // Components
-import {
-    Greeting,
-} from './pages';
+import { TrendFilmsPage } from './pages/TopRatedFilmsPage';
+import { PopularFilmsPage } from './pages/PopularFilmsPage';
+import { LatestFilmsPage } from './pages/LatestFilmsPage';
+import { AboutTheFilmPage } from './pages/AboutTheFilmPage';
+import { TopRatedFilmsPage } from './pages/TrendFilmsPage';
 
 /* Other */
 import { useStore } from './hooks';
@@ -40,9 +42,11 @@ export const App: FC = observer(() => {
             <ToastContainer newestOnTop transition = { Slide } />
 
             <Routes>
-                <Route path = '/' element = { <Outlet /> }>
-                    <Route path = '/' element = { <Greeting /> } />
-                </Route>
+                <Route path = '/' element = {  <TrendFilmsPage /> } />
+                <Route path = '/popular-films' element = { <PopularFilmsPage /> } />
+                <Route path = '/top-rated-films' element = { <TopRatedFilmsPage /> } />
+                <Route path = '/latest-films' element = { <LatestFilmsPage /> } />
+                <Route path = '/films/:filmId' element = { <AboutTheFilmPage /> } />
 
                 <Route path = '*' element = { <Navigate to = '/' /> } />
             </Routes>

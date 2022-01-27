@@ -13,9 +13,9 @@ import { queryClient } from './lib/react-query';
 import { StoreProvider } from './lib';
 
 // Styles
+import './theme/main.scss';
 import 'antd/dist/antd.min.css';
 import 'react-toastify/dist/ReactToastify.css';
-import './theme/main.scss';
 
 configure({
     enforceActions:             'always',
