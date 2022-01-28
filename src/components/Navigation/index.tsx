@@ -1,30 +1,30 @@
 // Core
 import { FC } from 'react';
-import { Menu } from 'antd';
-import { NavLink } from 'react-router-dom';
+import { Menu, Layout } from 'antd';
+import { Link } from 'react-router-dom';
 
-// Styles
-import { LogoWrapper, MenuWrapper, NavigationWrapper } from '../styled/Navigation.styles';
+const { Header } = Layout;
 
 export const Navigation: FC = () => {
     return (
-        <NavigationWrapper>
-            <LogoWrapper>Movie App</LogoWrapper>
-            <MenuWrapper
-                theme = 'dark' mode = 'horizontal'>
-                <Menu.Item>
-                    <NavLink to = '/'>Главная</NavLink>
+        <Header>
+            <p className = 'logo'>Movie App</p>
+            <Menu
+                theme = 'dark' mode = 'horizontal'
+                defaultSelectedKeys = { ['main'] }>
+                <Menu.Item key =  'main'>
+                    <Link to = '/'>Главная</Link>
                 </Menu.Item>
-                <Menu.Item>
-                    <NavLink to = '/popular-films'>Популярные фильмы</NavLink>
+                <Menu.Item key = 'popular'>
+                    <Link to = '/popular-films'>Популярные фильмы</Link>
                 </Menu.Item>
-                <Menu.Item>
-                    <NavLink to = '/top-rated-films'>Трендовые фильмы</NavLink>
+                <Menu.Item key = 'rated'>
+                    <Link to = '/top-rated-films'>Трендовые фильмы</Link>
                 </Menu.Item>
-                <Menu.Item>
-                    <NavLink to = '/latest-films'>Последние вышедшие фильмы</NavLink>
+                <Menu.Item key = 'latest'>
+                    <Link to = '/latest-films'>Последние вышедшие фильмы</Link>
                 </Menu.Item>
-            </MenuWrapper>
-        </NavigationWrapper>
+            </Menu>
+        </Header>
     );
 };

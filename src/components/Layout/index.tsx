@@ -5,9 +5,6 @@ import { Layout } from 'antd';
 // Components
 import { Navigation } from '../Navigation';
 
-// Styles
-import { LayoutWrapper } from '../styled/Layout.styles';
-
 const { Content } = Layout;
 
 type Props = {
@@ -16,11 +13,11 @@ type Props = {
 
 export const LayoutMain: FC<Props> = ({ children }) => {
     return (
-        <LayoutWrapper >
+        <Layout >
             <Navigation />
             <Content>
                 { children }
             </Content>
-        </LayoutWrapper>
+        </Layout>
     );
 };
