@@ -7,8 +7,7 @@ import { LayoutMain } from '../../components/Layout';
 export const AboutTheFilmPage: FC = () => {
     return (
         <LayoutMain>
-            <h1>Последние фильмы</h1>
+            <h1>Название фильма</h1>
         </LayoutMain>
-
     );
 };
