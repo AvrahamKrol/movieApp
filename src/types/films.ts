@@ -1,7 +1,7 @@
 export interface IFilmDetails {
     id: number,
     title: string,
-    poster_hash: string,
+    poster_path: string,
     release_date: string,
     revenue: number,
     budget: number,

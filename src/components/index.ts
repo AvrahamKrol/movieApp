@@ -1,3 +1,4 @@
-export * from './description';
-export * from './statistics';
-export * from './hero';
+export * from './Description';
+export * from './Statistics';
+export * from './Hero';
+export * from './Layout';

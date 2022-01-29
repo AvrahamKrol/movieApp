@@ -17,9 +17,9 @@ export const Statistics: FC<Props> = (props) => {
 
 
     return (
-        <Row style = { { marginLeft: -8, marginRight: -8 } }>
-            <Col span = { 8 } style = { { paddingLeft: 8, paddingRight: 8 } } >
-                <Card bordered = { true }>
+        <Row gutter = { 16 } >
+            <Col span = { 8 } >
+                <Card>
                     <Statistic
                         valueStyle = { { color: '#1890ff' } }
                         title = 'popularity'
@@ -27,8 +27,8 @@ export const Statistics: FC<Props> = (props) => {
                         prefix = { <TrophyOutlined /> } />
                 </Card>
             </Col>
-            <Col span = { 8 } style = { { paddingLeft: 8, paddingRight: 8 } } >
-                <Card bordered = { true }>
+            <Col span = { 8 } >
+                <Card>
                     <Statistic
                         valueStyle = { { color: '#28d7b5' } }
                         title = 'Budget'
@@ -36,8 +36,8 @@ export const Statistics: FC<Props> = (props) => {
                         prefix = { <DollarOutlined /> } />
                 </Card>
             </Col>
-            <Col span = { 8 } style = { { paddingLeft: 8, paddingRight: 8 } } >
-                <Card bordered = { true }>
+            <Col span = { 8 } >
+                <Card>
                     <Statistic
                         valueStyle = { { color: '#28d7b5' } }
                         title = 'Revenue'

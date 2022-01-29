@@ -21,12 +21,34 @@ import { book } from './constants/book';
 
 
 export const App: FC = observer(() => {
+    const { uiStore } = useStore();
+    const { errorMessage, resetError } = uiStore;
+
+    useEffect(() => {
+        if (errorMessage) {
+            const notify = () => toast.error(errorMessage, {
+                position:        'top-right',
+                autoClose:       7000,
+                hideProgressBar: false,
+                closeOnClick:    true,
+                pauseOnHover:    true,
+                draggable:       true,
+                progress:        undefined,
+            });
+            notify();
+
+            resetError();
+        }
+    }, [errorMessage]);
+
     return (
         <>
+            <ToastContainer newestOnTop transition = { Slide } />
+
             <Routes>
                 <Route path = '/' element = { <Outlet /> }>
                     <Route path = '/' element = { <TrendFilmsPage />  } />
-                    <Route path = 'films/:id' element = { <FilmDetails /> } />
+                    <Route path = '/:id' element = { <FilmDetails /> } />
                 </Route>
 
                 <Route path = { book.root.url } element = {  <TrendFilmsPage /> } />
@@ -34,7 +56,6 @@ export const App: FC = observer(() => {
                 <Route
                     path = { book.films.url }
                     element = { <Navigate to = { book.topRatedFilms.url } /> } />
-                <Route path = { book.film.url } element = { <AboutTheFilmPage /> } />
                 <Route path = { book.topRatedFilms.url } element = { <TopRatedFilmsPage /> } />
                 <Route path = { book.latestFilms.url } element = { <LatestFilmsPage /> } />
 

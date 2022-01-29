@@ -1,75 +1,55 @@
 // Core
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import { Layout } from 'antd';
-import { observer } from 'mobx-react-lite';
 import { useParams } from 'react-router-dom';
-import { ToastContainer, toast, Slide } from 'react-toastify';
+
+// Components
+import { Description, Hero, Statistics, LayoutMain } from '../../components';
 
 // Hooks
-import { useFilmById, useStore } from '../../hooks';
-import { Description, Hero, Statistics } from '../../components';
+import { useGetFilmById } from '../../hooks';
 
 const { Content } = Layout;
 
-export const FilmDetails: FC = observer(() => {
-    const params = useParams();
-    const { data: filmData, isFetched } = useFilmById(params.id);
-    const  {
-        title,
-        poster_path,
-        release_date,
-        revenue,
-        budget,
-        status,
-        popularity,
-        overview,
-        genres,
-        vote_count,
-        vote_average }  = filmData;
+export const FilmDetails: FC = () => {
+    const params = useParams() as { id: string };
+    const { data, isFetched } = useGetFilmById(params.id);
+    if (!isFetched || !data) {
+        return null;
+    }
 
-    const jenresString = genres?.join(', ');
-    // eslint-disable-next-line no-console
-    console.log(filmData);
+    const filmData = {
+        title:        data?.title,
+        poster_path:  data?.poster_path,
+        release_date: data?.release_date,
+        revenue:      data?.revenue,
+        budget:       data?.budget,
+        status:       data?.status,
+        popularity:   data?.popularity,
+        overview:     data?.overview,
+        genres:       data?.genres,
+        vote_count:   data?.vote_count,
+        vote_average: data?.vote_average,
+    };
 
-    const { uiStore } = useStore();
-    const { errorMessage, resetError } = uiStore;
-
-    useEffect(() => {
-        if (errorMessage) {
-            const notify = () => toast.error(errorMessage, {
-                position:        'top-right',
-                autoClose:       7000,
-                hideProgressBar: false,
-                closeOnClick:    true,
-                pauseOnHover:    true,
-                draggable:       true,
-                progress:        undefined,
-            });
-            notify();
-
-            resetError();
-        }
-    }, [errorMessage]);
+    const jenresString = filmData.genres.join(', ');
 
     return (
-        <Layout>
-            <Content style = { { padding: '0 50px' } }>
-                <ToastContainer newestOnTop transition = { Slide } />
-                <Hero
-                    title = { title }
-                    poster_path = { poster_path } />
-                <Description
-                    status = { status }
-                    release_date = { release_date }
-                    overview = { overview }
-                    vote_count = { vote_count }
-                    vote_average = { vote_average }
-                    jenres = { jenresString } />
-                <Statistics
-                    revenue = { revenue }
-                    budget = { budget }
-                    popularity = { popularity } />
-            </Content>
-        </Layout>
+        <LayoutMain>
+            <Hero
+                title = { filmData.title }
+                poster_path = { filmData.poster_path } />
+            <Description
+                status = { status }
+                release_date = { filmData.release_date }
+                overview = { filmData.overview }
+                vote_count = { filmData.vote_count }
+                vote_average = { filmData.vote_average }
+                jenres = { jenresString } />
+            <Statistics
+                revenue = { filmData.revenue }
+                budget = { filmData.budget }
+                popularity = { filmData.popularity } />
+        </LayoutMain>
     );
-});
+};

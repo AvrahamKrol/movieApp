@@ -8,14 +8,16 @@ type Props = {
     poster_path: string;
 };
 
-export const Hero: FC<Props> = (props) => {
+export const Hero: FC<Props> = ({ title, poster_path }) => {
     return (
         <>
-            <Title>{ props.title }</Title><Row justify = 'start' align = 'middle'>
+            <Title>{ title }</Title>
+            <Row justify = 'start' align = 'middle'>
                 <Col span = { 12 }>
                     <Image
-                        src = { props.poster_path }
+                        src = { poster_path }
                         width = { 250 }
+                        alt = { title }
                         preview = { false } />
                 </Col>
             </Row>

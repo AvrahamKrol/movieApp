@@ -1,4 +1,4 @@
 export * from './useStore';
-export * from './useFilmById';
+export * from './useGetFilmById';
 export * from './useTrendingMovies';
 export * from './useCurrentPage';

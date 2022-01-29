@@ -24,11 +24,11 @@ export const Description: FC<Props> = (props) => {
         <Descriptions
             column = { 2 }
             bordered>
-            <Descriptions.Item label = 'Статус' span = { 1 }>{ status }</Descriptions.Item>
-            <Descriptions.Item label = 'Дата выхода' span = { 1 }>{ release_date }</Descriptions.Item>
-            <Descriptions.Item label = 'Количество голосов' span = { 1 }>{ vote_count }</Descriptions.Item>
-            <Descriptions.Item label = 'Средняя оценка' span = { 1 }>{ vote_average }</Descriptions.Item>
-            <Descriptions.Item label = 'Краткое описание' span = { 3 }>{ overview }</Descriptions.Item>
+            <Descriptions.Item label = 'Статус'>{ status }</Descriptions.Item>
+            <Descriptions.Item label = 'Дата выхода'>{ release_date }</Descriptions.Item>
+            <Descriptions.Item label = 'Количество голосов'>{ vote_count }</Descriptions.Item>
+            <Descriptions.Item label = 'Средняя оценка'>{ vote_average }</Descriptions.Item>
+            <Descriptions.Item label = 'Краткое описание' span = { 2 }>{ overview }</Descriptions.Item>
             <Descriptions.Item label = 'Жанры'>{ jenres }</Descriptions.Item>
         </Descriptions>
     );

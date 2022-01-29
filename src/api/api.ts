@@ -1,13 +1,13 @@
 // Core
 import axios, { AxiosResponse } from 'axios';
-import { IFilmCard } from '../types';
+import { IFilmCard, IFilmDetails } from '../types';
 
 // Configs
 import { root } from './config';
 
 export const api = Object.freeze({
-    getMovie: async (filmId: string | any) => {
-        const { data } = await axios.get(`${root}/movie-details/${filmId}`);
+    getMovie: async (filmId: string): Promise<IFilmDetails> => {
+        const { data } = await axios.get<AxiosResponse<IFilmDetails>>(`${root}/movie-details/${filmId}`);
 
         return data.data;
     },
