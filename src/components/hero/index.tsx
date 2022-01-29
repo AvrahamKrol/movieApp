@@ -1,6 +1,8 @@
 import { FC } from 'react';
 import { Typography, Row, Col, Image } from 'antd';
 
+/* * */
+
 const { Title } = Typography;
 
 type Props = {

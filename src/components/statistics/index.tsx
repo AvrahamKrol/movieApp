@@ -2,6 +2,8 @@ import { FC } from 'react';
 import { Row, Col, Statistic, Card } from 'antd';
 import { TrophyOutlined, DollarOutlined } from '@ant-design/icons';
 
+/* * */
+
 type Props = {
     popularity: number;
     budget: number;
