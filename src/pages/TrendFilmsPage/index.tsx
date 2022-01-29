@@ -1,18 +1,14 @@
 // Core
 import { FC } from 'react';
-import { Link } from 'react-router-dom';
 
 // Components
 import { LayoutMain } from '../../components/Layout';
+import { TrendingMovies } from '../../components/TrendingMovies';
 
-export const TopRatedFilmsPage: FC = () => {
-    const id = '238';
-
+export const TrendFilmsPage: FC = () => {
     return (
         <LayoutMain>
-            <h1>Трендовые фильмы</h1>
-            <Link to = { `/films/${id}` }>Подробнее</Link>
+            <TrendingMovies />
         </LayoutMain>
-
     );
 };

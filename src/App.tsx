@@ -7,15 +7,16 @@ import { ToastContainer, toast, Slide } from 'react-toastify';
 import { observer } from 'mobx-react-lite';
 
 // Components
-import { TrendFilmsPage } from './pages/TopRatedFilmsPage';
+import { TopRatedFilmsPage } from './pages/TopRatedFilmsPage';
 import { PopularFilmsPage } from './pages/PopularFilmsPage';
 import { LatestFilmsPage } from './pages/LatestFilmsPage';
 import { AboutTheFilmPage } from './pages/AboutTheFilmPage';
-import { TopRatedFilmsPage } from './pages/TrendFilmsPage';
+import { TrendFilmsPage } from './pages/TrendFilmsPage';
 
 /* Other */
 import { useStore } from './hooks';
 import { book } from './constants/book';
+
 
 export const App: FC = observer(() => {
     const { uiStore } = useStore();
@@ -43,6 +44,7 @@ export const App: FC = observer(() => {
             <ToastContainer newestOnTop transition = { Slide } />
 
             <Routes>
+
                 <Route path = { book.root.url } element = {  <TrendFilmsPage /> } />
                 <Route path = { book.popularFilms.url } element = { <PopularFilmsPage /> } />
                 <Route
