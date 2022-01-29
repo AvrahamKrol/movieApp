@@ -13,6 +13,7 @@ import {
 
 /* Other */
 import { useStore } from './hooks';
+import { TrendFilmsPage } from './pages/TrendFilmsPage';
 
 export const App: FC = observer(() => {
     const { uiStore } = useStore();
@@ -41,7 +42,7 @@ export const App: FC = observer(() => {
 
             <Routes>
                 <Route path = '/' element = { <Outlet /> }>
-                    <Route path = '/' element = { <Greeting /> } />
+                    <Route path = '/' element = { <TrendFilmsPage /> } />
                 </Route>
 
                 <Route path = '*' element = { <Navigate to = '/' /> } />
