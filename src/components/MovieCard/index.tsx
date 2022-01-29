@@ -2,7 +2,7 @@
 import { Card } from 'antd';
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { IFilmCard } from '../../types/FilmModel';
+import { IFilmCard } from '../../types';
 
 const { Meta } = Card;
 

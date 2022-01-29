@@ -5,7 +5,7 @@ import { observer } from 'mobx-react-lite';
 
 // Components
 import { MovieCard } from '../MovieCard';
-import { Loader } from '../Loader/indes';
+import { Loader } from '../Loader';
 
 // Hooks
 import { useStore, useTrendingMovies } from '../../hooks';
@@ -21,7 +21,8 @@ export const TrendingMovies: FC = observer(() => {
         trendingMoviesStore.setFilmsKey(key);
     };
 
-    const cardJSX = data.map((card) => {
+
+    const cardJSX = data?.map((card) => {
         return <MovieCard key = { card.id } { ...card } />;
     });
 
@@ -34,7 +35,7 @@ export const TrendingMovies: FC = observer(() => {
                 <TabPane tab = 'За сегодня' key = 'day'>
                     <div className = 'cards'>
                         {
-                            isFetching && data.length === 0 ? <Loader /> : cardJSX
+                            isFetching ? <Loader /> : cardJSX
                         }
                     </div>
                 </TabPane>
@@ -42,7 +43,7 @@ export const TrendingMovies: FC = observer(() => {
                     <div className = 'cards'>
 
                         {
-                            isFetching && data.length === 0 ? <Loader /> : cardJSX
+                            isFetching ? <Loader /> : cardJSX
                         }
                     </div>
                 </TabPane>

@@ -6,7 +6,7 @@ export const Loader: FC = () => {
         <section className = 'loader'>
             <span className = 'loader-bars'><span>
             </span></span>
-            Loading...
+            Загрузка...
         </section>
     );
 };

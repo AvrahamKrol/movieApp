@@ -3,12 +3,11 @@ import { FC } from 'react';
 
 // Components
 import { LayoutMain } from '../../components/Layout';
-import { TrendingMovies } from '../../components/TrendingMovies';
 
-export const TrendFilmsPage: FC = () => {
+export const AboutTheFilmPage: FC = () => {
     return (
         <LayoutMain>
-            <TrendingMovies />
+            <h1>Название фильма</h1>
         </LayoutMain>
     );
 };

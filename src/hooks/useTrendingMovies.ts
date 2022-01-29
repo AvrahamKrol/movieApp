@@ -1,7 +1,13 @@
 import { useQuery } from 'react-query';
-import { useStore } from '.';
+
+// Store
+import { useStore } from './useStore';
+
+// Api
 import { api } from '../api';
-import { IFilmCard } from '../types/FilmModel';
+
+// Types
+import { IFilmCard } from '../types';
 
 export const useTrendingMovies = () => {
     const { trendingMoviesStore } = useStore();
@@ -10,7 +16,7 @@ export const useTrendingMovies = () => {
     const { data, isFetching } = useQuery<IFilmCard[]>(['films', time], () => api.getTrendingMovies(time));
 
     return {
-        data: Array.isArray(data) ? data : [],
+        data,
         isFetching,
     };
 };
