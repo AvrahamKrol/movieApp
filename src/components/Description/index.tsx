@@ -1,6 +1,8 @@
 import { FC } from 'react';
 import { Descriptions } from 'antd';
 
+/* * */
+
 type Props = {
     status:string;
     release_date:string;

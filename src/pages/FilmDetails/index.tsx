@@ -1,6 +1,5 @@
 // Core
 import { FC } from 'react';
-import { Layout } from 'antd';
 import { useParams } from 'react-router-dom';
 
 // Components
@@ -8,8 +7,6 @@ import { Description, Hero, Statistics, LayoutMain } from '../../components';
 
 // Hooks
 import { useGetFilmById } from '../../hooks';
-
-const { Content } = Layout;
 
 export const FilmDetails: FC = () => {
     const params = useParams() as { id: string };
