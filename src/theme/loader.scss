@@ -1,0 +1,72 @@
+@mixin size($width , $height: $width ) {
+    width: $width;
+    height: $height;
+}
+
+@mixin absPosition ($top: auto, $right: auto, $bottom: auto, $left: auto) {
+    position: absolute;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+@mixin animation($animation...) {
+    animation: $animation;
+}
+
+.loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    font-size: 30px;
+}
+
+.loader-bars {
+    position: relative;
+    width: 50px;
+    height: 30px;
+
+    &::before,
+    &::after,
+    span {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        @include size(10px, 30px);
+        background-color: var(--color-5);
+        @include animation(grow 1.5s linear infinite);
+    }
+
+
+    &::after {
+        left: 15px;
+        @include animation(grow 1.5s linear -0.5s infinite);
+    }
+    
+    span {
+        left: 30px;
+        @include animation(grow 1.5s linear -1s infinite);
+    }
+}
+
+@keyframes grow {
+    0% {
+      -webkit-transform: scaleY(0);
+      transform: scaleY(0);
+      opacity: 0;
+    }
+    50% {
+      -webkit-transform: scaleY(1);
+      transform: scaleY(1);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scaleY(0);
+      transform: scaleY(0);
+      opacity: 0;
+    }
+}

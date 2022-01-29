@@ -1,0 +1,22 @@
+.ant-layout-header {
+    display: flex;
+    margin-bottom: 24px;
+
+    .logo {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        margin-right: 25px;
+        font-family: "Caveat", sans-serif;
+        font-size: 28px;
+        color: var(--color-2);
+        user-select: none;
+        transform: skewY(170deg);
+    }
+
+    .ant-menu {
+        flex: 1;
+        margin: 0 0 0 16px;
+    }
+
+}
