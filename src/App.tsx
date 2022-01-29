@@ -15,6 +15,7 @@ import { TopRatedFilmsPage } from './pages/TrendFilmsPage';
 
 /* Other */
 import { useStore } from './hooks';
+import { book } from './constants/book';
 
 export const App: FC = observer(() => {
     const { uiStore } = useStore();
@@ -42,12 +43,14 @@ export const App: FC = observer(() => {
             <ToastContainer newestOnTop transition = { Slide } />
 
             <Routes>
-                <Route path = '/' element = {  <TrendFilmsPage /> } />
-                <Route path = '/popular-films' element = { <PopularFilmsPage /> } />
-                <Route path = '/films' element = { <Navigate to = '/top-rated-films' /> } />
-                <Route path = '/films/:id' element = { <AboutTheFilmPage /> } />
-                <Route path = '/top-rated-films' element = { <TopRatedFilmsPage /> } />
-                <Route path = '/latest-films' element = { <LatestFilmsPage /> } />
+                <Route path = { book.root.url } element = {  <TrendFilmsPage /> } />
+                <Route path = { book.popularFilms.url } element = { <PopularFilmsPage /> } />
+                <Route
+                    path = { book.films.url }
+                    element = { <Navigate to = { book.topRatedFilms.url } /> } />
+                <Route path = { book.film.url } element = { <AboutTheFilmPage /> } />
+                <Route path = { book.topRatedFilms.url } element = { <TopRatedFilmsPage /> } />
+                <Route path = { book.latestFilms.url } element = { <LatestFilmsPage /> } />
 
                 <Route path = '*' element = { <Navigate to = '/' /> } />
             </Routes>

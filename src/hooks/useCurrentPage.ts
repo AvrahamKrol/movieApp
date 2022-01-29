@@ -1,22 +1,24 @@
 // Core
-import { useEffect, useState } from 'react';
-import { matchPath, useLocation, useParams } from 'react-router-dom';
+import { matchPath, useLocation } from 'react-router-dom';
+
+// Constants
+import { book } from '../constants/book';
 
 export const useCurrentPage = () => {
-    const params = useParams();
-    const [filmId, setFilmID] = useState('');
     const { pathname } = useLocation();
 
-    useEffect(() => {
-        if (params.id) {
-            setFilmID(params.id);
-        }
-    }, [params]);
-
-    const filmUrl = matchPath(`/films/${filmId}`, pathname);
-
-    return {
-        pathname,
-        filmUrl,
+    const appPages = {
+        [ book.root.url ]:          book.root.key,
+        [ book.films.url ]:         book.films.key,
+        [ book.film.url ]:          book.film.key,
+        [ book.popularFilms.url ]:  book.popularFilms.key,
+        [ book.topRatedFilms.url ]: book.topRatedFilms.key,
+        [ book.latestFilms.url ]:   book.latestFilms.key,
     };
+
+    if (matchPath(book.film.url, pathname)) {
+        return book.films.key;
+    }
+
+    return appPages[ pathname ];
 };
