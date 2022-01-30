@@ -9,10 +9,12 @@ export const api = Object.freeze({
     getMovie: async (filmId: string): Promise<IFilmDetails> => {
         const { data } = await axios.get<AxiosResponse<IFilmDetails>>(`${root}/movie-details/${filmId}`);
 
-        return data.data;
+        return data?.data;
     },
-    getSimilarMovies: (filmId: string) => {
-        return axios.get(`${root}/${filmId}/similar`);
+    getSimilarMovies: async (filmId: string): Promise<IFilmCard[]> => {
+        const { data } = await axios.get <AxiosResponse<IFilmCard[]>>(`${root}/${filmId}/similar`);
+
+        return data?.data;
     },
     getRecommendationsMovies: (filmId: string) => {
         return axios.get(`${root}/${filmId}/recommendations`);

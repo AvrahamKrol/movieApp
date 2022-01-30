@@ -1,8 +1,6 @@
 // Core
 import { FC, useEffect } from 'react';
-import { Outlet,
-    Routes, Route, Navigate,
-} from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { ToastContainer, toast, Slide } from 'react-toastify';
 import { observer } from 'mobx-react-lite';
 
