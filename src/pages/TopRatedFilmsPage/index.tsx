@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { LayoutMain } from '../../components/Layout';
 
 export const TopRatedFilmsPage: FC = () => {
-    const id = '238';
+    const id = '730154';
 
     return (
         <LayoutMain>

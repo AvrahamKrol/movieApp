@@ -9,44 +9,44 @@ import { Description, Hero, Statistics, LayoutMain } from '../../components';
 import { useGetFilmById } from '../../hooks';
 
 export const FilmDetails: FC = () => {
-    const params = useParams() as { id: string };
-    const { data, isFetched } = useGetFilmById(params.id);
-    if (!isFetched || !data) {
+    const params = useParams() as { filmId: string };
+    const { data: filmData, isFetched } = useGetFilmById(params.filmId);
+    if (!isFetched || !filmData) {
         return null;
     }
 
-    const filmData = {
-        title:        data?.title,
-        poster_path:  data?.poster_path,
-        release_date: data?.release_date,
-        revenue:      data?.revenue,
-        budget:       data?.budget,
-        status:       data?.status,
-        popularity:   data?.popularity,
-        overview:     data?.overview,
-        genres:       data?.genres,
-        vote_count:   data?.vote_count,
-        vote_average: data?.vote_average,
-    };
+    const {
+        title,
+        poster_path,
+        release_date,
+        revenue,
+        budget,
+        status,
+        popularity,
+        overview,
+        genres,
+        vote_count,
+        vote_average,
+    } = filmData;
 
-    const jenresString = filmData.genres.join(', ');
+    const jenresString = genres.join(', ');
 
     return (
         <LayoutMain>
             <Hero
-                title = { filmData.title }
-                poster_path = { filmData.poster_path } />
+                title = { title }
+                poster_path = { poster_path } />
             <Description
                 status = { status }
-                release_date = { filmData.release_date }
-                overview = { filmData.overview }
-                vote_count = { filmData.vote_count }
-                vote_average = { filmData.vote_average }
+                release_date = { release_date }
+                overview = { overview }
+                vote_count = { vote_count }
+                vote_average = { vote_average }
                 jenres = { jenresString } />
             <Statistics
-                revenue = { filmData.revenue }
-                budget = { filmData.budget }
-                popularity = { filmData.popularity } />
+                revenue = { revenue }
+                budget = { budget }
+                popularity = { popularity } />
         </LayoutMain>
     );
 };

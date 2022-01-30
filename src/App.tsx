@@ -46,19 +46,14 @@ export const App: FC = observer(() => {
             <ToastContainer newestOnTop transition = { Slide } />
 
             <Routes>
-                <Route path = '/' element = { <Outlet /> }>
-                    <Route path = '/' element = { <TrendFilmsPage />  } />
-                    <Route path = '/:id' element = { <FilmDetails /> } />
-                </Route>
-
                 <Route path = { book.root.url } element = {  <TrendFilmsPage /> } />
                 <Route path = { book.popularFilms.url } element = { <PopularFilmsPage /> } />
                 <Route
                     path = { book.films.url }
                     element = { <Navigate to = { book.topRatedFilms.url } /> } />
                 <Route path = { book.topRatedFilms.url } element = { <TopRatedFilmsPage /> } />
+                <Route path = { book.film.url } element = { <FilmDetails /> } />
                 <Route path = { book.latestFilms.url } element = { <LatestFilmsPage /> } />
-
                 <Route path = '*' element = { <Navigate to = '/' /> } />
             </Routes>
         </>
