@@ -4,6 +4,7 @@ import { Layout } from 'antd';
 
 // Components
 import { Navigation } from '../Navigation';
+import { FooterMain } from '../Footer';
 
 const { Content } = Layout;
 
@@ -18,6 +19,7 @@ export const LayoutMain: FC<Props> = ({ children }) => {
             <Content>
                 { children }
             </Content>
+            <FooterMain />
         </Layout>
     );
 };
