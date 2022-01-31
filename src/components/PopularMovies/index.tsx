@@ -10,6 +10,9 @@ import { useGetPopularMovies } from '../../hooks/useGetPopularMovies';
 // Types
 import { IPopularMoviesModel } from '../../types';
 
+// Constants
+import { book } from '../../constants/book';
+
 export const PopularMovies: FC = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const { data: popularFilms, isFetching } = useGetPopularMovies(currentPage);
@@ -38,8 +41,8 @@ export const PopularMovies: FC = () => {
             dataIndex: 'title',
             key:       'data',
             width:     '10%',
-            render:    (title: string, data: IPopularMoviesModel) => <Link
-                to = { `/films/${ data.id }` }>{ title }</Link>,
+            render:    (title: string) => <Link
+                to = { book.film.url }>{ title }</Link>,
         },
         {
             title:     'Популярность',
@@ -65,7 +68,7 @@ export const PopularMovies: FC = () => {
         {
             title:  'Детали',
             key:    'data',
-            render: (data: IPopularMoviesModel) => <Link to = { `/films/${ data.id }` }>Подробнее...</Link>,
+            render: () => <Link to = { book.film.url }>Подробнее...</Link>,
         },
     ];
 
@@ -88,15 +91,12 @@ export const PopularMovies: FC = () => {
     };
 
     return (
-        <>
-
-            <Table
-                title = { tableTitleJSX }
-                showHeader = { true }
-                dataSource = { dataPopularMovies }
-                columns = { columns }
-                bordered = { true }
-                pagination = { { ...paginationConfig } } /></>
+        <Table
+            title = { tableTitleJSX }
+            dataSource = { dataPopularMovies }
+            columns = { columns }
+            bordered = { true }
+            pagination = { { ...paginationConfig } } />
 
     );
 };
