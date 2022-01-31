@@ -1,7 +1,7 @@
 // Core
 import { FC, useEffect } from 'react';
-import { Routes, Route, Navigate,
-} from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
+
 import { ToastContainer, toast, Slide } from 'react-toastify';
 import { observer } from 'mobx-react-lite';
 
@@ -43,7 +43,6 @@ export const App: FC = observer(() => {
     return (
         <>
             <ToastContainer newestOnTop transition = { Slide } />
-
             <Routes>
                 <Route path = { book.root.url } element = {  <TrendFilmsPage /> } />
                 <Route path = { book.popularFilms.url } element = { <PopularMoviesPage /> } />
