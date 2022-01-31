@@ -14,10 +14,14 @@ type Props = {
 };
 
 export const RecomendedFilms: FC<Props> = ({ filmId }) => {
-    const { data: similarFilms, isFetched } = useGetRecomendedFilms(filmId);
+    const { data: recomendedFilms, isFetched } = useGetRecomendedFilms(filmId);
 
-    if (!isFetched && !similarFilms) {
-        return null;
+    if (isFetched && recomendedFilms?.length === 0) {
+        return (
+            <div className = 'recomended_films'>
+                <p>Рекомендуемые фильмы отсутствуют</p>
+            </div>
+        );
     }
 
 
@@ -27,7 +31,7 @@ export const RecomendedFilms: FC<Props> = ({ filmId }) => {
                 title = { () => <PageHeader
                     title = 'Рекомендуемые фильмы'
                     className = 'site-page-header' /> }
-                dataSource = { similarFilms }
+                dataSource = { recomendedFilms }
                 bordered
                 rowKey = { 'id' }
                 columns = { columns }
