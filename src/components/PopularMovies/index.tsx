@@ -1,7 +1,8 @@
 // Core
-import { FC } from 'react';
-import { Table, Image } from 'antd';
+import { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Table, Image } from 'antd';
+
 
 // Hooks
 import { useGetPopularMovies } from '../../hooks/useGetPopularMovies';
@@ -10,7 +11,8 @@ import { useGetPopularMovies } from '../../hooks/useGetPopularMovies';
 import { IPopularMoviesModel } from '../../types';
 
 export const PopularMovies: FC = () => {
-    const { data: popularFilms, isFetching } = useGetPopularMovies(1);
+    const [currentPage, setCurrentPage] = useState(1);
+    const { data: popularFilms, isFetching } = useGetPopularMovies(currentPage);
 
     if (isFetching) {
         return null;
@@ -68,9 +70,22 @@ export const PopularMovies: FC = () => {
         };
     });
 
+    const paginationConfig = {
+        current:         currentPage,
+        pageSize:        20,
+        total:           2000,
+        showSizeChanger: false,
+        showQuickJumper: true,
+        onChange:        (page: number) => {
+            setCurrentPage(page);
+        },
+    };
+
     return (
         <Table
-            dataSource = { dataPopularMovies } columns = { columns }
-            bordered = { true } />
+            dataSource = { dataPopularMovies }
+            columns = { columns }
+            bordered = { true }
+            pagination = { { ...paginationConfig } } />
     );
 };
