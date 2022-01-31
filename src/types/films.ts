@@ -12,3 +12,5 @@ export interface IFilmDetails {
     vote_count: number,
     vote_average: number,
 }
+export type IRecomendedFilms = Omit<IFilmDetails,
+'status' | 'budget' | 'revenue' | 'genres'>;

@@ -28,7 +28,7 @@
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
   "editor.fontLigatures": false,
-  "window.zoomLevel": 0,
+  "window.zoomLevel": -1,
   "editor.fontSize": 12,
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "workbench.colorTheme": "Gruvbox Dark Hard",
