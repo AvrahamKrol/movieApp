@@ -42,7 +42,6 @@ export const App: FC = observer(() => {
     return (
         <>
             <ToastContainer newestOnTop transition = { Slide } />
-
             <Routes>
                 <Route path = { book.root.url } element = {  <TrendFilmsPage /> } />
                 <Route path = { book.popularFilms.url } element = { <PopularFilmsPage /> } />

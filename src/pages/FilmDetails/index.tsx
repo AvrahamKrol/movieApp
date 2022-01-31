@@ -3,14 +3,14 @@ import { FC } from 'react';
 import { useParams } from 'react-router-dom';
 
 // Components
-import { Description, Hero, Statistics, LayoutMain, MovieSimilar } from '../../components';
+import { Description, Hero, Statistics, LayoutMain, RecomendedFilms } from '../../components';
 
 // Hooks
 import { useGetFilmById } from '../../hooks';
 
 export const FilmDetails: FC = () => {
-    const params = useParams() as { filmId: string };
-    const { data: filmData, isFetched } = useGetFilmById(params.filmId);
+    const { filmId } = useParams() as { filmId: string };
+    const { data: filmData, isFetched } = useGetFilmById(filmId);
     if (!isFetched || !filmData) {
         return null;
     }
@@ -47,8 +47,8 @@ export const FilmDetails: FC = () => {
                 revenue = { revenue }
                 budget = { budget }
                 popularity = { popularity } />
-            <MovieSimilar
-                params = { params } />
+            <RecomendedFilms
+                filmId = { filmId } />
         </LayoutMain>
     );
 };

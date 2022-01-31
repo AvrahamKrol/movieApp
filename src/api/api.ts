@@ -1,6 +1,6 @@
 // Core
 import axios, { AxiosResponse } from 'axios';
-import { IFilmCard, IFilmDetails } from '../types';
+import { IFilmCard, IFilmDetails, IRecomendedFilms } from '../types';
 
 // Configs
 import { root } from './config';
@@ -16,8 +16,10 @@ export const api = Object.freeze({
 
         return data?.data;
     },
-    getRecommendationsMovies: (filmId: string) => {
-        return axios.get(`${root}/${filmId}/recommendations`);
+    getRecommendationsMovies: async (filmId: string): Promise<IRecomendedFilms[]> => {
+        const { data } = await axios.get<AxiosResponse<IRecomendedFilms[]>>(`${root}/${filmId}/recommendations`);
+
+        return data.data;
     },
     getReviewsToMovie: (filmId: string) => {
         return axios.get(`${root}/${filmId}/reviews`);
