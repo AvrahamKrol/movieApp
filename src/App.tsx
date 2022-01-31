@@ -1,19 +1,18 @@
 // Core
 import { FC, useEffect } from 'react';
-import { Outlet,
-    Routes, Route, Navigate,
+import { Routes, Route, Navigate,
 } from 'react-router-dom';
 import { ToastContainer, toast, Slide } from 'react-toastify';
 import { observer } from 'mobx-react-lite';
 
 // Components
+import { TrendFilmsPage } from './pages/TrendFilmsPage';
 import {
     FilmDetails,
 } from './pages';
 import { TopRatedFilmsPage } from './pages/TopRatedFilmsPage';
-import { PopularFilmsPage } from './pages/PopularFilmsPage';
+import { PopularMoviesPage } from './pages/PopularMoviesPage';
 import { LatestFilmsPage } from './pages/LatestFilmsPage';
-import { TrendFilmsPage } from './pages/TrendFilmsPage';
 
 /* Other */
 import { useStore } from './hooks';
@@ -47,7 +46,7 @@ export const App: FC = observer(() => {
 
             <Routes>
                 <Route path = { book.root.url } element = {  <TrendFilmsPage /> } />
-                <Route path = { book.popularFilms.url } element = { <PopularFilmsPage /> } />
+                <Route path = { book.popularFilms.url } element = { <PopularMoviesPage /> } />
                 <Route
                     path = { book.films.url }
                     element = { <Navigate to = { book.topRatedFilms.url } /> } />

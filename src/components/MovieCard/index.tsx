@@ -11,7 +11,7 @@ export const MovieCard: FC<IFilmCard> = (props) => {
 
     return (
         <Link
-            to = { id }
+            to = { `/films/${id}` }
             className = 'card'>
             <Card
                 hoverable
