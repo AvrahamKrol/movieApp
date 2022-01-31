@@ -1,7 +1,7 @@
 // Core
 import { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Table, Image } from 'antd';
+import { Table, Image, PageHeader } from 'antd';
 
 
 // Hooks
@@ -17,6 +17,12 @@ export const PopularMovies: FC = () => {
     if (isFetching) {
         return null;
     }
+
+    const tableTitleJSX = () => {
+        return <PageHeader
+            className = 'site-page-header'
+            title = 'Популярные фильмы' />;
+    };
 
     const columns = [
         {
@@ -82,10 +88,15 @@ export const PopularMovies: FC = () => {
     };
 
     return (
-        <Table
-            dataSource = { dataPopularMovies }
-            columns = { columns }
-            bordered = { true }
-            pagination = { { ...paginationConfig } } />
+        <>
+
+            <Table
+                title = { tableTitleJSX }
+                showHeader = { true }
+                dataSource = { dataPopularMovies }
+                columns = { columns }
+                bordered = { true }
+                pagination = { { ...paginationConfig } } /></>
+
     );
 };
