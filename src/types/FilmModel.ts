@@ -4,4 +4,5 @@ export interface IFilmCard {
     poster_path: string;
     overview: string;
     release_year: string;
+    release_date?: string;
 }

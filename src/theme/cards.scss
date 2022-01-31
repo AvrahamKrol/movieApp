@@ -1,5 +1,8 @@
 main.ant-layout-content {
     padding: 0 50px;
+    > section {
+        margin-top: 25px;
+    }
 }
 
 .cards {

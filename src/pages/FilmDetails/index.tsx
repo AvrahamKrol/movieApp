@@ -3,7 +3,8 @@ import { FC } from 'react';
 import { useParams } from 'react-router-dom';
 
 // Components
-import { Description, Hero, Statistics, LayoutMain, RecomendedFilms, Reviews } from '../../components';
+import { Description, Hero, Statistics,
+    LayoutMain, RecomendedFilms, Reviews, SimilarFilms } from '../../components';
 
 // Hooks
 import { useGetFilmById } from '../../hooks';
@@ -50,6 +51,8 @@ export const FilmDetails: FC = () => {
             <Reviews
                 filmId = { filmId } />
             <RecomendedFilms
+                filmId = { filmId } />
+            <SimilarFilms
                 filmId = { filmId } />
         </LayoutMain>
     );
