@@ -1,6 +1,6 @@
 // Core
 import axios, { AxiosResponse } from 'axios';
-import { IFilmCard, IFilmDetails, IRecomendedFilms } from '../types';
+import { IFilmCard, IFilmDetails, IRecomendedFilms, IReview } from '../types';
 
 // Configs
 import { root } from './config';
@@ -21,8 +21,10 @@ export const api = Object.freeze({
 
         return data.data;
     },
-    getReviewsToMovie: (filmId: string) => {
-        return axios.get(`${root}/${filmId}/reviews`);
+    getReviewsToMovie: async (filmId: string): Promise<IReview[]> => {
+        const { data } = await axios.get<AxiosResponse<IReview[]>>(`${root}/${filmId}/reviews`);
+
+        return data?.data;
     },
     getPopularMovies: (page: number) => {
         return axios.get(`${root}/popular-movies?page=${page}`);
