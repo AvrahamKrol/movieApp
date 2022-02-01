@@ -4,6 +4,8 @@ import { List, Card, Typography } from 'antd';
 
 // Hooks
 import { useGetSimilarFilms } from '../../hooks';
+import { Link } from 'react-router-dom';
+import { book } from '../../constants/book';
 
 type Props = {
     filmId: string;
@@ -32,18 +34,19 @@ export const SimilarFilms: FC<Props> = ({ filmId }) => {
                 renderItem = { (item) => {
                     return (
                         <>
-                            <List.Item>
+                            <Link
+                                to = { `${book.films.url}/${item.id}` }>
                                 <Card
                                     title = { item.title }
                                     hoverable
                                     cover = { <img
-                                        alt = { item.poster_path }
+                                        alt = { item.title }
                                         src = { item.poster_path } /> }>
                                     <Meta
                                         title = { item.release_date }
                                         description = { item.overview } />
                                 </Card>
-                            </List.Item>
+                            </Link>
                         </>
                     );
                 } } />
