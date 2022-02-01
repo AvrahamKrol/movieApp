@@ -12,8 +12,7 @@ export const PopularFilmsColumns: ColumnsType<IPopularFilmsModel> = [
     {
         title:     'Постер',
         dataIndex: 'poster_path',
-        key:       'data',
-        width:     '238px',
+        width:     '15%',
         align:     'center',
         render:    (poster_path: string, data) => <Image
             src = { poster_path } alt = { data.title } />,
@@ -21,7 +20,6 @@ export const PopularFilmsColumns: ColumnsType<IPopularFilmsModel> = [
     {
         title:     'Название',
         dataIndex: 'title',
-        key:       'data',
         width:     '10%',
         align:     'center',
         render:    (title: string, data) => <LinkToFilm id = { `${data.id}` }  filmName = { `${title}` } />,
