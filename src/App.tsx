@@ -1,17 +1,18 @@
 // Core
 import { FC, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
+
 import { ToastContainer, toast, Slide } from 'react-toastify';
 import { observer } from 'mobx-react-lite';
 
 // Components
+import { TrendFilmsPage } from './pages/TrendFilmsPage';
 import {
     FilmDetails,
 } from './pages';
 import { TopRatedFilmsPage } from './pages/TopRatedFilmsPage';
 import { PopularFilmsPage } from './pages/PopularFilmsPage';
 import { LatestFilmsPage } from './pages/LatestFilmsPage';
-import { TrendFilmsPage } from './pages/TrendFilmsPage';
 
 /* Other */
 import { useStore } from './hooks';
