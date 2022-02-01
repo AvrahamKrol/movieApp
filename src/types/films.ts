@@ -16,7 +16,7 @@ export type IRecomendedFilms = Omit<IFilmDetails,
 'status' | 'budget' | 'revenue' | 'genres'>;
 
 export interface IReview {
-    id: number,
-    author: number,
-    content: number,
+    id: string,
+    author: string,
+    content: string,
 }
