@@ -1,4 +1,4 @@
-export interface IPopularMoviesModel {
+export interface IPopularFilmsModel {
     id: number;
     title: string;
     popularity: number;
@@ -7,5 +7,4 @@ export interface IPopularMoviesModel {
     vote_average: number;
     overview: string;
     genres: string[];
-    release_date: string;
 }

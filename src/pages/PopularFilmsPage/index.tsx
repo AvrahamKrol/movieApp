@@ -3,12 +3,12 @@ import { FC } from 'react';
 
 // Components
 import { LayoutMain } from '../../components/Layout';
-import { PopularMovies } from '../../components/PopularMovies';
+import { PopularFilms } from '../../components/PopularFilms';
 
-export const PopularMoviesPage: FC = () => {
+export const PopularFilmsPage: FC = () => {
     return (
         <LayoutMain>
-            <PopularMovies />
+            <PopularFilms />
         </LayoutMain>
 
     );

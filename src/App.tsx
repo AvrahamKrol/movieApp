@@ -11,7 +11,7 @@ import {
     FilmDetails,
 } from './pages';
 import { TopRatedFilmsPage } from './pages/TopRatedFilmsPage';
-import { PopularMoviesPage } from './pages/PopularMoviesPage';
+import { PopularFilmsPage } from './pages/PopularFilmsPage';
 import { LatestFilmsPage } from './pages/LatestFilmsPage';
 
 /* Other */
@@ -45,7 +45,7 @@ export const App: FC = observer(() => {
             <ToastContainer newestOnTop transition = { Slide } />
             <Routes>
                 <Route path = { book.root.url } element = {  <TrendFilmsPage /> } />
-                <Route path = { book.popularFilms.url } element = { <PopularMoviesPage /> } />
+                <Route path = { book.popularFilms.url } element = { <PopularFilmsPage /> } />
                 <Route
                     path = { book.films.url }
                     element = { <Navigate to = { book.topRatedFilms.url } /> } />
