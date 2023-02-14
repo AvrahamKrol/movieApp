@@ -1,7 +1,7 @@
 {
     "name": "movies",
     "version": "0.0.1",
-    "homepage": "https://github.com/AvrahamKrol/movieApp",
+    "homepage": "https://avrahamkrol.github.io/movieApp",
     "private": true,
     "scripts": {
         "dev": "react-scripts start",
