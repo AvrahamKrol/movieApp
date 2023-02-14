@@ -1,9 +1,12 @@
 {
     "name": "movies",
     "version": "0.0.1",
+    "homepage": "https://github.com/AvrahamKrol/movieApp",
     "private": true,
     "scripts": {
         "dev": "react-scripts start",
+        "predeploy" : "npm run build",
+        "deploy" : "gh-pages -d build",
         "build": "react-scripts build",
         "test": "react-scripts test --watchAll --verbose",
         "eject": "react-scripts eject",
